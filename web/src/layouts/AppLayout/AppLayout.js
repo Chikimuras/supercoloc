@@ -13,6 +13,9 @@ const AppLayout = ({ children }) => {
               <li>
                 <Link to={routes.contact()}>Contact</Link>
               </li>
+              <li>
+                <Link to={routes.expenseTypes()}>Expense types</Link>
+              </li>
             </ul>
           </nav>
         </div>

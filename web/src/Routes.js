@@ -9,11 +9,19 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
+import ExpenseTypesLayout from 'src/layouts/ExpenseTypesLayout'
+
 import AppLayout from './layouts/AppLayout/AppLayout'
 
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={ExpenseTypesLayout}>
+        <Route path="/expense-types/new" page={ExpenseTypeNewExpenseTypePage} name="newExpenseType" />
+        <Route path="/expense-types/{id:Int}/edit" page={ExpenseTypeEditExpenseTypePage} name="editExpenseType" />
+        <Route path="/expense-types/{id:Int}" page={ExpenseTypeExpenseTypePage} name="expenseType" />
+        <Route path="/expense-types" page={ExpenseTypeExpenseTypesPage} name="expenseTypes" />
+      </Set>
       <Set wrap={AppLayout}>
         <Route path="/contact" page={ContactPage} name="contact" />
         <Route path="/" page={HomePage} name="home" />

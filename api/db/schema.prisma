@@ -7,12 +7,28 @@ generator client {
   provider      = "prisma-client-js"
   binaryTargets = "native"
 }
+model User {
+  id   Int    @id @default(autoincrement())
+  name String
+  mail String
+  pseudo String
+  password String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
 
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Expense {
+  id   Int    @id @default(autoincrement())
+  name String
+  amount Float
+  type_id Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model ExpenseType {
+  id   Int    @id @default(autoincrement())
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
 }
